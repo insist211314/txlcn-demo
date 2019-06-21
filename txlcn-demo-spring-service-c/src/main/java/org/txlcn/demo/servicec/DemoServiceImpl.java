@@ -2,6 +2,7 @@ package org.txlcn.demo.servicec;
 
 import com.codingapi.txlcn.common.util.Transactions;
 import com.codingapi.txlcn.tc.annotation.DTXPropagation;
+import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 import com.codingapi.txlcn.tc.annotation.TccTransaction;
 import com.codingapi.txlcn.tc.support.DTXUserControls;
 import com.codingapi.txlcn.tracing.TracingContext;
@@ -36,7 +37,7 @@ public class DemoServiceImpl implements DemoService {
     }
 
     @Override
-    @TccTransaction(propagation = DTXPropagation.SUPPORTS)
+    @LcnTransaction(propagation = DTXPropagation.SUPPORTS)
     @Transactional
     public String rpc(String value) {
         Demo demo = new Demo();

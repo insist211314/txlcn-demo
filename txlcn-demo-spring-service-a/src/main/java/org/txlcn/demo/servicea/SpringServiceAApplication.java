@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -16,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableDistributedTransaction
+@ComponentScan(basePackages = {"org.txlcn.demo.servicea", "org.txlcn.demo.common.config"})
 public class SpringServiceAApplication {
 
     public static void main(String[] args) {
@@ -24,9 +27,9 @@ public class SpringServiceAApplication {
 
     @Bean
     public RestTemplate restTemplate() {
-//        SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
-//        requestFactory.setConnectTimeout(1000);// 设置超时
-//        requestFactory.setReadTimeout(1000);
-        return new RestTemplate();
+        SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
+        requestFactory.setConnectTimeout(1000);// 设置超时
+        requestFactory.setReadTimeout(1000);
+        return new RestTemplate(requestFactory);
     }
 }
