@@ -3,8 +3,6 @@ package org.txlcn.demo.servicec;
 import com.codingapi.txlcn.common.util.Transactions;
 import com.codingapi.txlcn.tc.annotation.DTXPropagation;
 import com.codingapi.txlcn.tc.annotation.LcnTransaction;
-import com.codingapi.txlcn.tc.annotation.TccTransaction;
-import com.codingapi.txlcn.tc.support.DTXUserControls;
 import com.codingapi.txlcn.tracing.TracingContext;
 import com.google.common.collect.Sets;
 import lombok.extern.slf4j.Slf4j;
@@ -47,7 +45,6 @@ public class DemoServiceImpl implements DemoService {
         demo.setGroupId(TracingContext.tracing().groupId());
         demoMapper.save(demo);
         ids.putIfAbsent(TracingContext.tracing().groupId(), Sets.newHashSet(demo.getId()));
-        ids.get(TracingContext.tracing().groupId()).add(demo.getId());
         return "ok-service-c";
     }
 

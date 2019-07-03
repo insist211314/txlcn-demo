@@ -35,7 +35,6 @@ public class DemoServiceImpl implements DemoService {
     @Transactional
     public String rpc(String value) {
 
-
         Demo demo = new Demo();
         demo.setGroupId(TracingContext.tracing().groupId());
         demo.setDemoField(value);

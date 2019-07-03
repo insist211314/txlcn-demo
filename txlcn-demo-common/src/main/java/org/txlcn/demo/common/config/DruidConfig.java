@@ -34,7 +34,7 @@ public class DruidConfig {
             destroyMethod = "close",
             initMethod = "init"
     )
-    @Primary  //在同样的DataSource中，首先使用被标注的DataSource
+    //在同样的DataSource中，首先使用被标注的DataSource
     public DruidDataSource dataSource() {
         DruidDataSource datasource = new DruidDataSource();
         datasource.setUrl(this.url);
