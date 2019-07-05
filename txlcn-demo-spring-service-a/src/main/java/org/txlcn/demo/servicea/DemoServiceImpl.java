@@ -66,7 +66,7 @@ public class DemoServiceImpl implements DemoService {
         demo.setDemoField(value);
         demo.setCreateTime(new Date());
         demo.setAppName(Transactions.getApplicationId());
-        demoMapper.save(demo);
+        demoMapper.save2(demo);
 
         // 置异常标志，DTX 回滚
         if (Objects.nonNull(exFlag)) {
