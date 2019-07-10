@@ -38,6 +38,9 @@ public class DemoServiceImpl implements DemoService {
     @LcnTransaction(propagation = DTXPropagation.SUPPORTS)
     @Transactional
     public String rpc(String value) {
+//        try {
+//            Thread.sleep(2000L);
+//        }catch (Exception e){}
         Demo demo = new Demo();
         demo.setDemoField(value);
         demo.setCreateTime(new Date());

@@ -67,6 +67,9 @@ public class DemoServiceImpl implements DemoService {
         demo.setCreateTime(new Date());
         demo.setAppName(Transactions.getApplicationId());
         demoMapper.save2(demo);
+//        try {
+//            Thread.sleep(2000L);
+//        }catch (Exception e){}
 
         // 置异常标志，DTX 回滚
         if (Objects.nonNull(exFlag)) {

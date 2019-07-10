@@ -34,13 +34,17 @@ public class DemoServiceImpl implements DemoService {
     @LcnTransaction(propagation = DTXPropagation.SUPPORTS)
     @Transactional
     public String rpc(String value) {
-
+//        try {
+//            Thread.sleep(2000L);
+//        }catch (Exception e){}
         Demo demo = new Demo();
         demo.setGroupId(TracingContext.tracing().groupId());
         demo.setDemoField(value);
         demo.setAppName(Transactions.getApplicationId());
         demo.setCreateTime(new Date());
         demoMapper.save(demo);
+        if(1==1)
+            throw new RuntimeException("123");
         return "ok-service-b";
     }
 }

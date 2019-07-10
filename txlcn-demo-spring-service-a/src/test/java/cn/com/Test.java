@@ -16,7 +16,7 @@ public class Test {
 
         long startTime = System.currentTimeMillis();
 
-        for(int f =0 ;f<10; f++){
+        for(int f =0 ;f<100; f++){
             int o = i.getAndIncrement();
             executor.submit(() -> {
                 System.out.println(Thread.currentThread().getName() + " start ----" + o + "time=" + (System.currentTimeMillis()-startTime) + "  ----activeCount=" + executor.getActiveCount() + "  ----- max=" + executor.getMaximumPoolSize());
