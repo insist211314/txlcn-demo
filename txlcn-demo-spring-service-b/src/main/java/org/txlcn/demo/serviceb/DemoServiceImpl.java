@@ -43,8 +43,6 @@ public class DemoServiceImpl implements DemoService {
         demo.setAppName(Transactions.getApplicationId());
         demo.setCreateTime(new Date());
         demoMapper.save(demo);
-        if(1==1)
-            throw new RuntimeException("123");
         return "ok-service-b";
     }
 }

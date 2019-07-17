@@ -3,6 +3,7 @@ package org.txlcn.demo.servicec;
 import com.codingapi.txlcn.common.util.Transactions;
 import com.codingapi.txlcn.tc.annotation.DTXPropagation;
 import com.codingapi.txlcn.tc.annotation.LcnTransaction;
+import com.codingapi.txlcn.tc.annotation.TxcTransaction;
 import com.codingapi.txlcn.tracing.TracingContext;
 import com.google.common.collect.Sets;
 import lombok.extern.slf4j.Slf4j;
@@ -35,7 +36,7 @@ public class DemoServiceImpl implements DemoService {
     }
 
     @Override
-    @LcnTransaction(propagation = DTXPropagation.SUPPORTS)
+    @TxcTransaction(propagation = DTXPropagation.SUPPORTS)
     @Transactional
     public String rpc(String value) {
 //        try {
