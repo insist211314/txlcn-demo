@@ -36,7 +36,7 @@ public class DemoServiceImpl implements DemoService {
     }
 
     @Override
-    @TxcTransaction(propagation = DTXPropagation.SUPPORTS)
+    @LcnTransaction(propagation = DTXPropagation.SUPPORTS)
     @Transactional
     public String rpc(String value) {
 //        try {
