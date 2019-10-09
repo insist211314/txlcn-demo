@@ -46,9 +46,9 @@ public class DemoServiceImpl implements DemoService {
         demo.setDemoField(value);
         demo.setCreateTime(new Date());
         demo.setAppName(Transactions.getApplicationId());
-        demo.setGroupId(TracingContext.tracing().groupId());
+        //demo.setGroupId(TracingContext.tracing().groupId());
         demoMapper.save(demo);
-        ids.putIfAbsent(TracingContext.tracing().groupId(), Sets.newHashSet(demo.getId()));
+        //ids.putIfAbsent(TracingContext.tracing().groupId(), Sets.newHashSet(demo.getId()));
         return "ok-service-c";
     }
 

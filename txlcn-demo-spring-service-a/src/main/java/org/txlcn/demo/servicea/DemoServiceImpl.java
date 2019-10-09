@@ -1,6 +1,7 @@
 package org.txlcn.demo.servicea;
 
 import com.codingapi.txlcn.common.util.Transactions;
+import com.codingapi.txlcn.tc.annotation.DTXPropagation;
 import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 import com.codingapi.txlcn.tracing.TracingContext;
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +43,7 @@ public class DemoServiceImpl implements DemoService {
     }
 
     @Override
-    @LcnTransaction
+    @LcnTransaction(propagation = DTXPropagation.SUPPORTS)
     @Transactional
     public String execute(String value, String exFlag) {
         // step1. call remote ServiceD
@@ -62,7 +63,7 @@ public class DemoServiceImpl implements DemoService {
 
         // step3. execute local transaction
         Demo demo = new Demo();
-        demo.setGroupId(TracingContext.tracing().groupId());
+        //demo.setGroupId(TracingContext.tracing().groupId());
         demo.setDemoField(value);
         demo.setCreateTime(new Date());
         demo.setAppName(Transactions.getApplicationId());

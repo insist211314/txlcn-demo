@@ -38,7 +38,7 @@ public class DemoServiceImpl implements DemoService {
 //            Thread.sleep(2000L);
 //        }catch (Exception e){}
         Demo demo = new Demo();
-        demo.setGroupId(TracingContext.tracing().groupId());
+        //demo.setGroupId(TracingContext.tracing().groupId());
         demo.setDemoField(value);
         demo.setAppName(Transactions.getApplicationId());
         demo.setCreateTime(new Date());
